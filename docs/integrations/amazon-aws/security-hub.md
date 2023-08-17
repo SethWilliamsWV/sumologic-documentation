@@ -183,6 +183,19 @@ Findings from AWS services (AWS Security Hub) are delivered to CloudWatch Events
 
 You don't have to manually create the AWS resources. Simply deploy the solution, as described in the [Step 2: Deploy an AWS Security Hub App collector](#Step_2:_Deploy_an_AWS_Security_Hub_App_collector).
 
+#### Order of Operations
+1. Create an S3 bucket
+2. Start creating a new AWS S3 source in Sumo Logic
+3. Use the bucket name and path during the creation of the S3 source
+4. Generate the CloudFormation Template within the S3 source configuration
+5. Create and execute the CloudFormation Stack
+6. Input the ARN from the stack outputs into the S3 source configuration
+7. Configure the timestamp format
+8. Save the S3 source
+9. Search for the sumologic-securityhub-collector serverless application
+10. Deploy the application
+11. Input the newly created S3 bucket name
+12. Click Deploy
 
 #### Step 1: Add a hosted collector and Amazon S3 source
 
