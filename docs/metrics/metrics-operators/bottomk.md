@@ -1,6 +1,6 @@
 ---
 id: bottomk
-title: bottomk Operator
+title: bottomk Metrics Operator
 sidebar_label: bottomk
 ---
 
@@ -20,14 +20,14 @@ Where: 
 `SCALAR_EXPRESSION` is one these functions:
 
 | Function | Description |
-|--|--|
+|:--|:--|
 | min | Rank matching time series by which had the minimum value of the metric across the time range, and return the bottom n time series.  |
 | max | Rank matching time series by which had the maximum value of the metric across the time range, and return the bottom n time series. |
 | avg | Rank matching time series by the average value of the metric across the time range, and return the bottom n time series.  |
 | count | Rank matching time series by the count of the metric values across the time range, and return the  bottom n time series.  |
 | sum | Rank matching time series by the sum of the metric values across the time range, and return the bottom n time series. |
 | pct(n) | Return the n time series for which the calculated percentile of the metric values across the time range was lowest, and return the bottom n. |
-| latest | Rank matching time series by when the most recent data point was received, and return the bottom n time series.  |
+| latest | Rank matching time series by the value of the most recently ingested data point, and return the bottom n time series.  |
 
 ## Examples
 

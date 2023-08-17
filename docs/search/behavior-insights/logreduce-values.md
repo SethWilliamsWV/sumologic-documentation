@@ -13,7 +13,7 @@ This operator does not automatically [parse](/docs/search/search-query-language/
 The following table shows the fields that are returned in results.
 
 | `_cluster_id` | `_signature` | `_count` |
-| -- | -- | -- |
+| :-- | :-- | :-- |
 | The unique hash value assigned to the signature. | The group of specified key-value pairs with their count and percentage of occurrence in relation to the group _count. | The number of logs that have the related signature. |
 
 The field is a clickable link that opens a new window with a query that drills down to the logs from the related schema.
@@ -27,11 +27,11 @@ With the provided results you can:
 ## Syntax
 
 ```sql
-| logreduce values on\<key\>[,\<key\>, ...] [output_threshold\<output_threshol\>]
+| logreduce values on <keys>[,<keys>, ...] [output_threshold <output_threshold>]
 ```
 
 | _cluster_id | _signature | _count |
-| -- | -- | -- |
+| :-- | :-- | :-- |
 | The unique hash value assigned to the signature. | The group of specified key-value pairs with their count and percentage of occurrence in relation to the group _count. | The number of logs that have the related signature.<br/><br/>The field is a clickable link that opens a new window with a query that drills down to the logs from the related schema. |
 
 ### Details option
@@ -57,11 +57,11 @@ There are two methods you have to use the details option:
 ### Details Syntax
 
 ```sql
-| logreduce values details on %\<key\>"[, %\<key\>", ...] \<shortcodeI\> \<cluster_id\>,\<cluster_id\>, ...]
+| logreduce values details on <keys>[, <keys>, ...] <shortcodeID> <cluster_id>,<cluster_id>, ...]
 ```
 
 | Parameter   | Description | Default |
-| -- | -- | -- |
+| :-- | :-- | :-- |
 | keys | Comma separated list of keys that were parsed from structured data. | Null |
 | cluster_id  | The signature identifier that was provided from your initial LogReduce Values search. | Null |
 | shortcodeID | The unique hash value assigned to the initial LogReduce Values search.  | Null |
@@ -69,21 +69,21 @@ There are two methods you have to use the details option:
 For example, to see details from a particular LogReduce Values search and data clusters, you'd use the following syntax: 
 
 ```sql
-| logreduce values details on %\<key\>"[, %\<key\>", ...] \<shortcodeI\> \<cluster_id\>,\<cluster_id\>, ...]
+| logreduce values details on <keys>[, <keys>, ...] <shortcodeID> <cluster_id>,<cluster_id>, ...]
 ```
 
 To see all the logs by cluster identifiers for further processing, you'd use the following syntax:
 
 ```sql
-| logreduce values details on %\<key\>"[, %\<key\>", ...]\<shortcodeI\>
+| logreduce values details on <keys>[, <keys>, ...] <shortcodeID>
 ```
 
 ## Limitations
 
 * Not supported with [Real Time alerts](/docs/alerts/scheduled-searches/faq#real-time-alert-with-greater-than-1000-results).
-* [Time Compare](../time-compare.md) and the [compare operator](docs/search/search-query-language/search-operators/compare) are not supported against LogReduce Values results.
+* [Time Compare](../time-compare.md) and the [compare operator](/docs/search/search-query-language/search-operators/compare) are not supported against LogReduce Values results.
 * If you reach the memory limit you can try to shorten the time range or the number of specified fields. When the memory limit is reached you will get partial results on a subset of your data.
-* Response fields `_cluster_id`, `_signature`, and `_count` are not supported with [Dashboard filters](../../dashboards/edit-dashboards/use-filters-dashboards.md).
+* Response fields `_cluster_id`, `_signature`, and `_count` are not supported with [Dashboard filters](../../dashboards-classic/edit-dashboards/use-filters-dashboards.md).
 
 ### _count link 
 
@@ -154,7 +154,7 @@ If the user wants to drill down on a particular logreduce values query id and cl
 ```sql
 _sourceCategory="aws/cloudtrail/production" and _collector="AWS"
 | json "eventName", "eventSource", "awsRegion", "userAgent", "userIdentity.type", "managementEvent", "readOnly"
-| logreduce values-details\<shortcodeI\> [clusterId\<cluster i\>]
+| logreduce values-details <shortcodeID> [clusterId<cluster id>]
 ```
 
 If the user wants to label the raw logs by their cluster ids for further processing, they can use the following query:
@@ -162,7 +162,7 @@ If the user wants to label the raw logs by their cluster ids for further process
 ```sql
 _sourceCategory="aws/cloudtrail/production" and _collector="AWS"
 | json "eventName", "eventSource", "awsRegion", "userAgent", "userIdentity.type", "managementEvent", "readOnly"
-| logreduce values-details\<shortcodeI\>
+| logreduce values-details <shortcodeID>
 | ...
 ```
 

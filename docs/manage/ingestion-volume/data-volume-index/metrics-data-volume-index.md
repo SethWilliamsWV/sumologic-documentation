@@ -11,6 +11,10 @@ You can query the index to:
 
 * Get the total metric data volume (data points) ingested by collector, source, source name, source category, or source host. 
 
+:::note
+You cannot query the index to get storage credits. For information about storage credits, see [Cloud Flex Credits Accounts](/docs/manage/manage-subscription/cloud-flex-credits-accounts).
+:::
+
 ## Message format
 
 Each JSON message contains the parent object for each source data point, and child objects that detail the data points for each parent.
@@ -38,7 +42,7 @@ _index=sumologic_volume _sourceCategory=<index_source_category>
 Where `index_source_category` is one of the categories listed in the table below.
 
 | Index Log Type | Index Source Category | Description |
-|--|--|--|
+|:--|:--|:--|
 | Collector | `collector_metrics_volume` | Use this source category to query metric volume by collector. |
 | Source | `source_metrics_volume` | Use this source category to query metric volume by source. |
 | SourceName | `sourcename_metrics_volume` | Use this source category to query metric volume by source name.  |

@@ -1,8 +1,11 @@
-# This is a comment.
-# Each line is a file pattern followed by one or more owners.
-
 # Default owners for everything in the repo.
-* @kimsauce @stacykor @MariePMcGarry @JainM6 @nmohantyctr @SumoLogic/open-source-collection-team
+* @stacykor @kimsauce @jpipkin1 @JV0812
 
 # Owners of all files in the `/docs` directory and its subdirectories.
-/docs/   @kimsauce @stacykor @MariePMcGarry @JainM6 @SumoLogic/open-source-collection-team
+/docs/   @kimsauce @stacykor @jpipkin1 @JV0812
+
+# Owners of all files in the `/docs/send-data/opentelemetry-collector` directory and its subdirectories.
+/docs/send-data/opentelemetry-collector/  @SumoLogic/open-source-collection-team @kimsauce @stacykor @jpipkin1 @JV0812
+
+# GitHub workflow owners
+/.github/workflows/ @SumoLogic/open-source-collection-team @kimsauce
